@@ -1,21 +1,21 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import Navbar from "../components/layout/Navbar";
-import WhatsAppButton from "../components/layout/WhatsAppButton";
-import Footer from "../components/layout/Footer";
-import Hero from "../components/sections/Hero";
-import About from "../components/sections/About";
-import Services from "../components/sections/Services";
-import PremiumMenu from "../components/sections/PremiumMenu";
-import EventShowcase from "../components/sections/EventShowcase";
-import Gallery from "../components/sections/Gallery";
-import WhyChoose from "../components/sections/WhyChoose";
-import Statistics from "../components/sections/Statistics";
-import BookingProcess from "../components/sections/BookingProcess";
-import Testimonials from "../components/sections/Testimonials";
-import FAQ from "../components/sections/FAQ";
-import Instagram from "../components/sections/Instagram";
-import Contact from "../components/sections/Contact";
+import Navbar from "../Components/layout/Navbar";
+import WhatsAppButton from "../Components/layout/WhatsAppButton";
+import Footer from "../Components/layout/Footer";
+import Hero from "../Components/sections/Hero";
+import About from "../Components/sections/About";
+import Services from "../Components/sections/Services";
+import PremiumMenu from "../Components/sections/PremiumMenu";
+import EventShowcase from "../Components/sections/EventShowcase";
+import Gallery from "../Components/sections/Gallery";
+import WhyChoose from "../Components/sections/WhyChoose";
+import Statistics from "../Components/sections/Statistics";
+import BookingProcess from "../Components/sections/BookingProcess";
+import Testimonials from "../Components/sections/Testimonials";
+import FAQ from "../Components/sections/FAQ";
+import Instagram from "../Components/sections/Instagram";
+import Contact from "../Components/sections/Contact";
 
 export default function Home() {
   const location = useLocation();
