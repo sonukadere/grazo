@@ -1,7 +1,7 @@
-import Navbar from "../components/layout/Navbar";
-import Footer from "../components/layout/Footer";
-import Gallery from "../components/sections/Gallery";
-import WhatsAppButton from "../components/layout/WhatsAppButton";
+import Navbar from "../Components/layout/Navbar";
+import Footer from "../Components/layout/Footer";
+import Gallery from "../Components/sections/Gallery";
+import WhatsAppButton from "../Components/layout/WhatsAppButton";
 
 export default function GalleryPage() {
   return (
