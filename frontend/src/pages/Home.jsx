@@ -1,20 +1,18 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "../Components/layout/Navbar";
-import WhatsAppButton from "../Components/layout/WhatsAppButton";
 import Footer from "../Components/layout/Footer";
+import WhatsAppButton from "../Components/layout/WhatsAppButton";
+
 import Hero from "../Components/sections/Hero";
-import About from "../Components/sections/About";
+import TrustBar from "../Components/sections/TrustBar";
 import Services from "../Components/sections/Services";
-import PremiumMenu from "../Components/sections/PremiumMenu";
-import EventShowcase from "../Components/sections/EventShowcase";
+import LiveCountersAndGrazing from "../Components/sections/LiveCountersAndGrazing";
+import SampleMenus from "../Components/sections/SampleMenus";
 import Gallery from "../Components/sections/Gallery";
-import WhyChoose from "../Components/sections/WhyChoose";
-import Statistics from "../Components/sections/Statistics";
-import BookingProcess from "../Components/sections/BookingProcess";
 import Testimonials from "../Components/sections/Testimonials";
-import FAQ from "../Components/sections/FAQ";
-import Instagram from "../Components/sections/Instagram";
+import BookingProcess from "../Components/sections/BookingProcess";
+import About from "../Components/sections/About";
 import Contact from "../Components/sections/Contact";
 
 export default function Home() {
@@ -24,31 +22,63 @@ export default function Home() {
     if (location.hash) {
       const id = location.hash.slice(1);
       setTimeout(() => {
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+        const el = document.getElementById(id);
+        if (el) {
+          const offset = 80;
+          const bodyRect = document.body.getBoundingClientRect().top;
+          const elementRect = el.getBoundingClientRect().top;
+          const elementPosition = elementRect - bodyRect;
+          window.scrollTo({
+            top: elementPosition - offset,
+            behavior: "smooth",
+          });
+        }
       }, 100);
     }
   }, [location]);
 
   return (
-    <>
+    <div className="bg-[#FAF7F2] text-[#1C1C1C] min-h-screen flex flex-col font-body selection:bg-[#C9A24D] selection:text-[#1C1C1C]">
+      {/* 1. Sticky Navbar */}
       <Navbar />
-      <main>
+
+      <main className="flex-grow">
+        {/* 2. Hero Section */}
         <Hero />
-        <About />
+
+        {/* 3. Trust Bar */}
+        <TrustBar />
+
+        {/* 4. Services (Wedding, Haldi, Mehendi, Sangeet, Corporate, Celebrations) */}
         <Services />
-        <Statistics />
-        <PremiumMenu />
-        <EventShowcase />
+
+        {/* 5. Live Counters and Grazing Tables Showcase */}
+        <LiveCountersAndGrazing />
+
+        {/* 6. Sample Menus (Tabbed by event type with Download Menu button) */}
+        <SampleMenus />
+
+        {/* 7. Gallery (Masonry grid with lightbox) */}
         <Gallery />
-        <WhyChoose />
-        <BookingProcess />
+
+        {/* 8. Testimonials (Carousel/cards with name & event type) */}
         <Testimonials />
-        <FAQ />
-        <Instagram />
+
+        {/* 9. Process (4 Steps: Enquiry → Tasting → Custom Menu → Flawless Execution) */}
+        <BookingProcess />
+
+        {/* About Section */}
+        <About />
+
+        {/* 10. Contact (Quote form, Google Maps embed, address, phone, email) */}
         <Contact />
       </main>
+
+      {/* 11. Footer (Logo, quick links, social icons, FSSAI number, copyright) */}
       <Footer />
+
+      {/* Floating WhatsApp CTA Button */}
       <WhatsAppButton />
-    </>
+    </div>
   );
 }

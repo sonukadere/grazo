@@ -1,52 +1,59 @@
-import { GiChopsticks, GiPartyPopper, GiHealthNormal, GiFamilyHouse, GiChefToque, GiHotMeal, GiCampingTent, GiPartyFlags } from "react-icons/gi";
-
-export const services = [
+export const servicesData = [
   {
-    id: 1,
-    title: "Wedding & Reception",
-    description: "Grand vegetarian feasts for your special day — from intimate gatherings to lavish wedding banquets with live counters, elegant plating, and bespoke menus that honour tradition.",
-    icon: GiPartyPopper,
+    id: "wedding",
+    title: "Wedding Receptions",
+    subtitle: "Grand Royal Banquets",
+    description:
+      "Regal multi-course pure vegetarian feasts tailored to your family's traditions. Featuring bespoke buffet presentation, live culinary counters, and impeccable white-glove hospitality.",
+    image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80&auto=format&fit=crop",
+    tag: "Royal Feasts",
   },
   {
-    id: 2,
-    title: "Haldi, Mehendi & Sangeet",
-    description: "Colourful, flavourful catering for your pre-wedding festivities. From vibrant haldi spreads to mehendi high-teas and high-energy sangeet live counters.",
-    icon: GiPartyFlags,
+    id: "haldi",
+    title: "Haldi Celebrations",
+    subtitle: "Vibrant Morning Spreads",
+    description:
+      "Bright, refreshing culinary spreads designed for sunny morning ceremonies. Featuring signature chilled beverages, seasonal fruit bars, live street chaat stations, and traditional breakfast bites.",
+    image: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&q=80&auto=format&fit=crop",
+    tag: "Morning Spreads",
   },
   {
-    id: 3,
-    title: "Corporate & Business Events",
-    description: "Professional catering for conferences, board meetings, product launches, and corporate galas with premium presentation and impeccable service.",
-    icon: GiChefToque,
+    id: "mehendi",
+    title: "Mehendi Soirées",
+    subtitle: "Artisanal Hi-Tea & Tapas",
+    description:
+      "Curated finger foods, live chaat carts, artisanal tartines, and exotic mocktail bars that keep guests mingling while hands are adorned with henna.",
+    image: "https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?w=800&q=80&auto=format&fit=crop",
+    tag: "High Tea & Tapas",
   },
   {
-    id: 4,
-    title: "Anniversary & Celebrations",
-    description: "Mark your milestones with a curated dining experience. Custom menus, elegant setups, and heartfelt service for life's most cherished moments.",
-    icon: GiFamilyHouse,
+    id: "sangeet",
+    title: "Sangeet & Cocktail Nights",
+    subtitle: "High-Energy Live Stations",
+    description:
+      "Dynamic interactive live stations — pasta made in parmesan wheels, wood-fired bites, Asian dumpling bars, and progressive Indian tapas that energize your celebration until the late hours.",
+    image: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80&auto=format&fit=crop",
+    tag: "Live Interactive Bars",
   },
   {
-    id: 5,
-    title: "Live Counters & Food Stations",
-    description: "Interactive live cooking stations featuring pasta, chaat, pani puri, dumplings, dosa, and made-to-order specialities that delight every guest.",
-    icon: GiChopsticks,
+    id: "corporate",
+    title: "Corporate Events",
+    subtitle: "Conferences, Galas & Summits",
+    description:
+      "Refined, timely, and professional catering for board meetings, leadership summits, brand launches, and annual corporate galas with premium executive presentation.",
+    image: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&q=80&auto=format&fit=crop",
+    tag: "Executive Dining",
   },
   {
-    id: 6,
-    title: "Luxury Grazing Tables",
-    description: "Opulent grazing spreads with artisanal cheeses, fresh fruits, gourmet dips, and handcrafted bites — a visual and culinary masterpiece for any occasion.",
-    icon: GiHotMeal,
-  },
-  {
-    id: 7,
-    title: "Outdoor & Destination Events",
-    description: "Full-service outdoor catering for garden weddings, poolside parties, farmhouse celebrations, and destination events with flawless execution.",
-    icon: GiCampingTent,
-  },
-  {
-    id: 8,
-    title: "Festival Catering",
-    description: "Special festival menus for Diwali, Holi, Eid, Ganesh Chaturthi, and more — blending tradition with gourmet excellence and pure vegetarian ethos.",
-    icon: GiHealthNormal,
+    id: "celebrations",
+    title: "Milestone Celebrations",
+    subtitle: "Anniversaries & Private Parties",
+    description:
+      "Intimate gatherings and milestone birthdays transformed by custom menus, artisanal grazing boards, and personalized chef service designed around your story.",
+    image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80&auto=format&fit=crop",
+    tag: "Bespoke & Intimate",
   },
 ];
+
+export const services = servicesData;
+

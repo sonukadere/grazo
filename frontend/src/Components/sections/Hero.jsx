@@ -1,123 +1,124 @@
 import { motion } from "framer-motion";
+import { FaWhatsapp } from "react-icons/fa";
 import { HiChevronDown } from "react-icons/hi";
 import { whatsappLink } from "../../data/navigation";
 
 export default function Hero() {
   const scrollTo = (id) => {
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    if (el) {
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = el.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      window.scrollTo({
+        top: elementPosition - offset,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-dark pt-18 md:pt-22"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#1C1C1C] pt-20"
     >
-      {/* Background Image */}
-      <div className="absolute inset-0">
+      {/* Background Image with Dark Vignette Gradient */}
+      <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=1920&q=80"
-          alt="Luxury catering setup by Grazo Bites"
-          className="w-full h-full object-cover"
+          src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1920&q=85&auto=format&fit=crop"
+          alt="Luxury Pure Vegetarian Catering Setup by Grazo Bites in Indore"
+          width={1920}
+          height={1080}
+          className="w-full h-full object-cover object-center transform scale-105 animate-subtle-zoom"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-dark/80 via-dark/60 to-dark/70" />
+        {/* Dark luxury gradient overlays for AA text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1C1C1C] via-[#1C1C1C]/75 to-[#1C1C1C]/60" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-[#1C1C1C]/50 to-[#1C1C1C]/90" />
       </div>
 
-      {/* Decorative Gold Accent */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold to-transparent" />
+      {/* Decorative Gold Accent Border */}
+      <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#C9A24D] to-transparent z-10" />
 
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 text-center">
+      {/* Hero Content */}
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16 md:py-24">
+        {/* "100% Pure Vegetarian" Badge */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.6 }}
+          className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-[#1C1C1C]/80 border border-[#C9A24D]/60 shadow-lg backdrop-blur-md mb-6"
         >
-          <span className="inline-block mb-5 px-5 py-1.5 border border-gold/40 text-gold text-xs tracking-[0.2em] uppercase rounded-full font-medium">
-            Premium Pure Vegetarian Catering — Indore
+          {/* Pure Vegetarian Green Dot Symbol */}
+          <span className="w-3.5 h-3.5 border-2 border-emerald-500 rounded-sm flex items-center justify-center bg-transparent">
+            <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
+          </span>
+          <span className="text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-[#DFC688]">
+            100% Pure Vegetarian Catering • Indore
           </span>
         </motion.div>
 
+        {/* Main Headline */}
         <motion.h1
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-heading font-bold text-white leading-[1.05] tracking-tight"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-white tracking-tight leading-[1.1] mb-6"
         >
-          Where Every
-          <br />
-          <span className="text-gradient">Celebration</span> Finds Its Flavour
+          Where Every <span className="text-gradient">Celebration</span>
+          <br className="hidden sm:inline" /> Finds Its Flavour
         </motion.h1>
 
+        {/* Subline */}
         <motion.p
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-6 text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed font-light"
+          className="text-base sm:text-lg md:text-xl text-[#FAF7F2]/90 max-w-2xl mx-auto font-light leading-relaxed mb-10"
         >
-          We craft luxury vegetarian dining experiences for weddings, haldi & sangeet
-          celebrations, corporate events, and intimate gatherings. Every dish tells a story of tradition, taste, and elegance.
+          Grazo Bites crafts luxury vegetarian feasts, opulent artisanal grazing tables,
+          and interactive live counters for weddings, pre-wedding festivities, and prestigious corporate galas across Madhya Pradesh.
         </motion.p>
 
+        {/* Two CTAs: "Get a Quote" and "WhatsApp Us" */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-10 flex flex-wrap justify-center gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5"
         >
           <button
-            onClick={() => scrollTo("menu")}
-            className="px-8 py-3.5 bg-gold hover:bg-gold/90 text-dark font-semibold rounded-full transition-all hover:shadow-xl hover:shadow-gold/20 active:scale-95 text-sm md:text-base"
+            onClick={() => scrollTo("contact")}
+            className="w-full sm:w-auto btn-primary text-sm sm:text-base px-9 py-4 uppercase tracking-wider font-semibold"
+            aria-label="Request a customized quote for your event"
           >
-            Explore Our Menu
+            Get a Quote
           </button>
+
           <a
             href={whatsappLink}
             target="_blank"
             rel="noreferrer"
-            className="px-8 py-3.5 border border-white/30 hover:border-gold/60 text-white hover:text-gold font-semibold rounded-full transition-all active:scale-95 text-sm md:text-base"
+            className="w-full sm:w-auto btn-secondary-light text-sm sm:text-base px-8 py-4 flex items-center justify-center gap-3 font-semibold"
+            aria-label="Contact Grazo Bites directly on WhatsApp"
           >
-            Book Now
+            <FaWhatsapp className="w-5 h-5 text-emerald-400" />
+            WhatsApp Us
           </a>
-        </motion.div>
-
-        {/* Stats Bar */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-          className="mt-16 pt-8 border-t border-white/10 max-w-2xl mx-auto"
-        >
-          <div className="flex justify-center gap-8 sm:gap-12 text-center">
-            {[
-              { value: "250+", label: "Signature Dishes" },
-              { value: "500+", label: "Events Catered" },
-              { value: "Indore", label: "Proudly Based In" },
-            ].map((s) => (
-              <div key={s.label}>
-                <p className="text-gold font-heading font-bold text-xl sm:text-2xl">
-                  {s.value}
-                </p>
-                <p className="text-gray-400 text-xs sm:text-sm mt-1">
-                  {s.label}
-                </p>
-              </div>
-            ))}
-          </div>
         </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Down Scroll Indicator */}
       <motion.button
-        onClick={() => scrollTo("about")}
-        aria-label="Scroll down"
+        onClick={() => scrollTo("trust-bar")}
+        aria-label="Scroll to details"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: [0, 8, 0] }}
-        transition={{ opacity: { delay: 1.5 }, y: { repeat: Infinity, duration: 2 } }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-white/50 hover:text-gold transition-colors"
+        transition={{ opacity: { delay: 1.2 }, y: { repeat: Infinity, duration: 2 } }}
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-[#C9A24D]/70 hover:text-[#C9A24D] transition-colors p-2"
       >
-        <HiChevronDown className="w-8 h-8" />
+        <HiChevronDown className="w-7 h-7" />
       </motion.button>
     </section>
   );

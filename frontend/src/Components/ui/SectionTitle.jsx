@@ -6,30 +6,43 @@ export default function SectionTitle({
   description,
   light = false,
   center = true,
+  badge = null,
 }) {
-  const textClass = light ? "text-white" : "text-dark";
-  const mutedClass = light ? "text-gray-300" : "text-gray-soft";
+  const textClass = light ? "text-white" : "text-charcoal";
+  const mutedClass = light ? "text-gray-300" : "text-charcoal-muted";
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.6 }}
-      className={`max-w-3xl ${center ? "mx-auto text-center" : ""} mb-14`}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className={`max-w-3xl ${center ? "mx-auto text-center" : ""} mb-12 md:mb-16`}
     >
-      {subtitle && (
-        <span className="inline-block text-gold font-semibold text-sm tracking-[0.2em] uppercase mb-3">
-          {subtitle}
+      {badge && (
+        <span className="inline-block px-4 py-1 mb-3 rounded-full text-xs font-semibold tracking-wider uppercase bg-maroon/10 text-maroon border border-maroon/20">
+          {badge}
         </span>
       )}
+
+      {subtitle && (
+        <div className={`flex items-center gap-3 ${center ? "justify-center" : ""} mb-3`}>
+          <span className="w-8 h-px bg-gold" />
+          <span className="text-gold font-medium text-xs sm:text-sm tracking-[0.25em] uppercase">
+            {subtitle}
+          </span>
+          <span className="w-8 h-px bg-gold" />
+        </div>
+      )}
+
       <h2
-        className={`text-3xl md:text-4xl lg:text-5xl font-heading font-bold leading-tight ${textClass}`}
+        className={`text-3xl sm:text-4xl md:text-5xl font-heading font-bold leading-tight ${textClass}`}
       >
         {title}
       </h2>
+
       {description && (
-        <p className={`mt-4 text-base md:text-lg leading-relaxed ${mutedClass}`}>
+        <p className={`mt-4 text-base md:text-lg leading-relaxed ${mutedClass} max-w-2xl ${center ? "mx-auto" : ""}`}>
           {description}
         </p>
       )}
