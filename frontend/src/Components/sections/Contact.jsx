@@ -192,7 +192,7 @@ export default function Contact() {
             {/* Google Map Placeholder */}
             <div className="rounded-2xl overflow-hidden shadow-sm border border-gold/10 h-48 bg-gray-200 flex items-center justify-center">
               <iframe
-                title="Grazo Location"
+                title="Grazo Bites Location"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117925.21679659767!2d75.78855239453126!3d22.724228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fc1c1b1b1b1b%3A0x1b1b1b1b1b1b1b1b!2sIndore%2C+Madhya+Pradesh!5e0!3m2!1sen!2sin!4v1"
                 width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"
               />

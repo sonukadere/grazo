@@ -22,7 +22,7 @@ export default function Statistics() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
         <SectionTitle
           subtitle="Our Impact"
-          title="Grazo in Numbers"
+          title="Grazo Bites in Numbers"
           description="Our journey is measured in smiles served, celebrations elevated, and standards set."
           light
         />

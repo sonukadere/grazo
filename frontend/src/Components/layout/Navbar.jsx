@@ -69,12 +69,12 @@ export default function Navbar() {
           <Link
             to="/"
             className="flex items-center gap-3 group min-w-0"
-            aria-label="Grazo Home"
+            aria-label="Grazo Bites Home"
           >
             <div className="w-10 h-10 md:w-11 md:h-11 rounded-full overflow-hidden ring-2 ring-gold/40 group-hover:ring-gold shadow-lg shadow-gold/10 flex-shrink-0 transition-all duration-300">
               <img
                 src={logo}
-                alt="Grazo Logo"
+                alt="Grazo Bites Logo"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -86,7 +86,7 @@ export default function Navbar() {
                     : "text-xl md:text-2xl text-white"
                 }`}
               >
-                Grazo
+                Grazo Bites
               </span>
               <span
                 className={`text-[0.5rem] md:text-[0.55rem] tracking-[0.25em] font-medium uppercase leading-tight transition-all duration-500 ${

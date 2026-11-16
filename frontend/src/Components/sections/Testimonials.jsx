@@ -33,7 +33,7 @@ export default function Testimonials() {
         <SectionTitle
           subtitle="Testimonials"
           title="Words From Our Families"
-          description="Don't take our word for it — hear from the families and businesses who trusted Grazo with their celebrations."
+          description="Don't take our word for it — hear from the families and businesses who trusted Grazo Bites with their celebrations."
         />
 
         <div className="relative max-w-3xl mx-auto">

@@ -26,9 +26,9 @@ export default function WhyChoose() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
         <SectionTitle
-          subtitle="Why Grazo"
+          subtitle="Why Grazo Bites"
           title="Crafted for the Discerning"
-          description="We don't just cater — we create experiences that linger in memory. Here's what makes Grazo different."
+          description="We don't just cater — we create experiences that linger in memory. Here's what makes Grazo Bites different."
         />
 
         <motion.div

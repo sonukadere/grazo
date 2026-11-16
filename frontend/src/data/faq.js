@@ -37,7 +37,7 @@ export const faqData = [
   },
   {
     id: 7,
-    question: "How far in advance should I book Grazo?",
+    question: "How far in advance should I book Grazo Bites?",
     answer:
       "For weddings and large events, we recommend booking at least 2–3 months in advance to secure your date and allow ample time for menu discussions and planning. For smaller events and private parties, 2–3 weeks' notice is usually sufficient.",
   },

@@ -17,7 +17,7 @@ export default function Hero() {
       <div className="absolute inset-0">
         <img
           src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=1920&q=80"
-          alt="Luxury catering setup by Grazo"
+          alt="Luxury catering setup by Grazo Bites"
           className="w-full h-full object-cover"
           loading="eager"
         />

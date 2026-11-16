@@ -6,9 +6,9 @@ export default function About() {
     <section id="about" className="py-20 md:py-28 bg-cream">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <SectionTitle
-          subtitle="About Grazo"
+          subtitle="About Grazo Bites"
           title="Luxury Vegetarian Catering, Rooted in Indian Tradition"
-          description="Grazo was born from a passion for reimagining vegetarian cuisine. We believe plant-based dining deserves the same artistry, elegance, and soul as any fine dining experience — and we deliver exactly that."
+          description="Grazo Bites was born from a passion for reimagining vegetarian cuisine. We believe plant-based dining deserves the same artistry, elegance, and soul as any fine dining experience — and we deliver exactly that."
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mt-8">
@@ -72,7 +72,7 @@ export default function About() {
                 Our Story
               </h3>
               <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
-                Grazo began with a simple belief: vegetarian food deserves the
+                Grazo Bites began with a simple belief: vegetarian food deserves the
                 same artistry and elegance as any fine dining experience. Our
                 founders, deeply passionate about Indian culinary heritage and
                 world-class hospitality, set out to create a catering brand that

@@ -52,11 +52,11 @@ export default function Footer() {
           >
             <Link to="/" className="flex items-center gap-3 mb-5 group">
               <div className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-gold/30 group-hover:ring-gold/60 transition-all">
-                <img src={logo} alt="Grazo" className="w-full h-full object-cover" />
+                <img src={logo} alt="Grazo Bites" className="w-full h-full object-cover" />
               </div>
               <div>
                 <span className="text-xl font-heading font-bold text-white block leading-tight">
-                  Grazo
+                  Grazo Bites
                 </span>
                 <span className="text-[0.5rem] tracking-[0.2em] text-gold font-medium uppercase block leading-tight">
                   Simply Crafted Flavours
@@ -205,7 +205,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-white/10 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-          <p>&copy; {year} Grazo. All rights reserved.</p>
+          <p>&copy; {year} Grazo Bites. All rights reserved.</p>
           <div className="flex gap-6">
             <a href="#privacy" className="hover:text-gold transition-colors">
               Privacy Policy

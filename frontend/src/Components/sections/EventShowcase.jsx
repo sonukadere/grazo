@@ -4,7 +4,7 @@ import { HiPhotograph } from "react-icons/hi";
 import SectionTitle from "../ui/SectionTitle";
 import { getEvents } from "../../api";
 
-const FALLBACK_IMG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'%3E%3Crect fill='%23111827' width='800' height='600'/%3E%3Crect fill='%23d4af37' x='350' y='250' width='100' height='100' rx='8'/%3E%3Cpath fill='%23f8f5f0' d='M370 280h60v8H370zm0 20h60v8H370zm0-10h40v8H370z' opacity='0.5'/%3E%3Ctext x='400' y='430' font-family='serif' font-size='22' fill='%23d4af37' text-anchor='middle' letter-spacing='4'%3EGrazo%3C/text%3E%3C/svg%3E";
+const FALLBACK_IMG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'%3E%3Crect fill='%23111827' width='800' height='600'/%3E%3Crect fill='%23d4af37' x='350' y='250' width='100' height='100' rx='8'/%3E%3Cpath fill='%23f8f5f0' d='M370 280h60v8H370zm0 20h60v8H370zm0-10h40v8H370z' opacity='0.5'/%3E%3Ctext x='400' y='430' font-family='serif' font-size='22' fill='%23d4af37' text-anchor='middle' letter-spacing='4'%3EGrazo%20Bites%3C/text%3E%3C/svg%3E";
 
 export default function EventShowcase() {
   const [list, setList] = useState([]);
@@ -34,7 +34,7 @@ export default function EventShowcase() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <SectionTitle
           subtitle="Events We Cater"
-          title="Celebrate Every Moment With Grazo"
+          title="Celebrate Every Moment With Grazo Bites"
           description="From the joy of a haldi ceremony to the grandeur of a wedding reception — every event receives our complete dedication and culinary artistry."
         />
 

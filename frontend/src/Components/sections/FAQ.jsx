@@ -60,7 +60,7 @@ export default function FAQ() {
         <SectionTitle
           subtitle="FAQ"
           title="Your Questions, Answered"
-          description="Everything you need to know before entrusting Grazo with your special occasion."
+          description="Everything you need to know before entrusting Grazo Bites with your special occasion."
         />
 
         <motion.div

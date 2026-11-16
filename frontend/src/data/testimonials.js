@@ -5,7 +5,7 @@ export const testimonials = [
     location: "Indore",
     event: "Wedding Reception",
     rating: 5,
-    text: "Grazo made our wedding reception truly unforgettable. The live pasta counter and the grazing table were the highlights of the evening. Our guests are still raving about the food weeks later! The team's attention to every detail was remarkable.",
+    text: "Grazo Bites made our wedding reception truly unforgettable. The live pasta counter and the grazing table were the highlights of the evening. Our guests are still raving about the food weeks later! The team's attention to every detail was remarkable.",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&q=80",
   },
   {
@@ -14,7 +14,7 @@ export const testimonials = [
     location: "Mumbai",
     event: "Corporate Gala",
     rating: 5,
-    text: "Exceptional corporate catering! The team was incredibly professional, the presentation was stunning, and the food was world-class. Our board members were deeply impressed. Highly recommend Grazo for any high-profile corporate event.",
+    text: "Exceptional corporate catering! The team was incredibly professional, the presentation was stunning, and the food was world-class. Our board members were deeply impressed. Highly recommend Grazo Bites for any high-profile corporate event.",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80",
   },
   {
@@ -23,7 +23,7 @@ export const testimonials = [
     location: "Delhi",
     event: "Sangeet Night",
     rating: 5,
-    text: "Our sangeet night was electric, and Grazo's live counters added so much energy. From the chaat station to the fusion Indian bites — every guest found something to love. The presentation was beautiful and the service was seamless.",
+    text: "Our sangeet night was electric, and Grazo Bites' live counters added so much energy. From the chaat station to the fusion Indian bites — every guest found something to love. The presentation was beautiful and the service was seamless.",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&q=80",
   },
   {
@@ -32,7 +32,7 @@ export const testimonials = [
     location: "Indore",
     event: "Haldi Ceremony",
     rating: 5,
-    text: "Grazo brought such warmth to our haldi ceremony. The menu was fresh, vibrant, and perfectly suited to the occasion. Our families are still talking about the pani puri shot and the delicious chilled desserts. Absolutely wonderful experience.",
+    text: "Grazo Bites brought such warmth to our haldi ceremony. The menu was fresh, vibrant, and perfectly suited to the occasion. Our families are still talking about the pani puri shot and the delicious chilled desserts. Absolutely wonderful experience.",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&q=80",
   },
   {
@@ -41,7 +41,7 @@ export const testimonials = [
     location: "Bhopal",
     event: "Wedding",
     rating: 5,
-    text: "Choosing Grazo for our wedding was the best decision we made. The live counters were a hit, the buffet was magnificent, and the service was impeccable. Every guest felt special. Truly a premium experience that exceeded our expectations.",
+    text: "Choosing Grazo Bites for our wedding was the best decision we made. The live counters were a hit, the buffet was magnificent, and the service was impeccable. Every guest felt special. Truly a premium experience that exceeded our expectations.",
     image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&q=80",
   },
 ];
