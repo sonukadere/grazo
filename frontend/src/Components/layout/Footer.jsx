@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { FaWhatsapp, FaInstagram, FaFacebookF, FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { navLinks, whatsappLink, phoneNumber, email, location, fssaiNumber } from "../../data/navigation";
-import logo from "../assets/grazo-logo.png";
+import logo from "../Assets/grazo-logo.png";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();

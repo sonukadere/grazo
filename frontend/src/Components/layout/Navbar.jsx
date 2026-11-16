@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiMenu, HiX } from "react-icons/hi";
 import { navLinks } from "../../data/navigation";
-import logo from "../assets/grazo-logo.png";
+import logo from "../Assets/grazo-logo.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
