@@ -8,7 +8,6 @@ import Hero from "../Components/sections/Hero";
 import TrustBar from "../Components/sections/TrustBar";
 import Services from "../Components/sections/Services";
 import LiveCountersAndGrazing from "../Components/sections/LiveCountersAndGrazing";
-import SampleMenus from "../Components/sections/SampleMenus";
 import Gallery from "../Components/sections/Gallery";
 import Testimonials from "../Components/sections/Testimonials";
 import BookingProcess from "../Components/sections/BookingProcess";
@@ -55,10 +54,7 @@ export default function Home() {
         {/* 5. Live Counters and Grazing Tables Showcase */}
         <LiveCountersAndGrazing />
 
-        {/* 6. Sample Menus (Tabbed by event type with Download Menu button) */}
-        <SampleMenus />
-
-        {/* 7. Gallery (Masonry grid with lightbox) */}
+        {/* 6. Gallery (Masonry grid with lightbox) */}
         <Gallery />
 
         {/* 8. Testimonials (Carousel/cards with name & event type) */}

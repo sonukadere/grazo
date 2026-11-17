@@ -70,7 +70,7 @@ export default function Gallery() {
   if (loading) return null;
 
   return (
-    <section id="gallery" className="py-20 md:py-28 bg-[#FAF7F2] relative">
+    <section id="gallery" className="py-20 md:py-28 bg-[#FAF7F2] border-t border-[#C9A24D]/15 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           subtitle="Our Portfolio"
