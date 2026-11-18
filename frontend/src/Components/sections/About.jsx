@@ -1,9 +1,13 @@
 import { motion } from "framer-motion";
 import SectionTitle from "../ui/SectionTitle";
+import grazingTableImg from "../Assets/grasing table full image.jpg";
+import cheeseBoardImg from "../Assets/cheese-board-5.jpg";
+import gourmetChaatImg from "../curated/gourmet-chaat-bar.jpg";
+import dessertSpreadImg from "../curated/fusion-dessert-spread.jpg";
 
 export default function About() {
   return (
-    <section id="about" className="py-20 md:py-28 bg-[#FAF7F2] relative overflow-hidden">
+    <section id="about" className="py-14 md:py-20 bg-[#FAF7F2] border-t border-[#C9A24D]/15 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           subtitle="About Grazo Bites"
@@ -11,20 +15,20 @@ export default function About() {
           description="Born in Indore from a reverence for pure vegetarian culinary traditions and modern gastronomy. We believe plant-based dining deserves the highest standard of elegance, innovation, and soulful flavor."
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mt-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
           {/* Visual Mosaic */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="grid grid-cols-2 gap-4"
           >
             <div className="space-y-4">
               <div className="overflow-hidden rounded-2xl shadow-sm border border-[#C9A24D]/20">
                 <img
-                  src="https://images.unsplash.com/photo-1555244162-803834f70033?w=500&q=80"
-                  alt="Master chef crafting gourmet vegetarian dish"
+                  src={grazingTableImg}
+                  alt="Festive pure vegetarian grazing table by Grazo Bites"
                   width={500}
                   height={350}
                   loading="lazy"
@@ -33,8 +37,8 @@ export default function About() {
               </div>
               <div className="overflow-hidden rounded-2xl shadow-sm border border-[#C9A24D]/20">
                 <img
-                  src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=500&q=80"
-                  alt="Fresh organic ingredients and microgreens"
+                  src={cheeseBoardImg}
+                  alt="Artisanal pure vegetarian cheese and fruit board"
                   width={500}
                   height={450}
                   loading="lazy"
@@ -45,8 +49,8 @@ export default function About() {
             <div className="space-y-4 mt-8">
               <div className="overflow-hidden rounded-2xl shadow-sm border border-[#C9A24D]/20">
                 <img
-                  src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&q=80"
-                  alt="Luxury dining and banquet table setting in Indore"
+                  src={gourmetChaatImg}
+                  alt="Gourmet pure vegetarian live chaat bar for intimate parties in Indore"
                   width={500}
                   height={450}
                   loading="lazy"
@@ -55,8 +59,8 @@ export default function About() {
               </div>
               <div className="overflow-hidden rounded-2xl shadow-sm border border-[#C9A24D]/20">
                 <img
-                  src="https://images.unsplash.com/photo-1540488341538-1e4a021f7ee7?w=500&q=80"
-                  alt="Artisanal dessert presentation"
+                  src={dessertSpreadImg}
+                  alt="Artisanal Indian fusion vegetarian dessert presentation"
                   width={500}
                   height={350}
                   loading="lazy"
@@ -68,15 +72,15 @@ export default function About() {
 
           {/* Narrative Content */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.7, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
             className="space-y-6"
           >
             <div className="p-7 sm:p-9 bg-white rounded-3xl shadow-sm border border-[#C9A24D]/20">
               <h3 className="text-xl sm:text-2xl font-heading font-bold text-[#1C1C1C] mb-3 flex items-center gap-3">
-                <span className="w-1.5 h-6 bg-[#C9A24D] rounded-full inline-block" />
+                <span className="w-1.5 h-6 bg-[#C9A24D] rounded-full inline-block flex-shrink-0" />
                 Our Heritage & Ethos
               </h3>
               <p className="text-[#5E5E5E] leading-relaxed text-sm sm:text-base">
@@ -84,8 +88,8 @@ export default function About() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              <div className="p-6 bg-white rounded-2xl shadow-sm border border-[#C9A24D]/15">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 items-stretch">
+              <div className="p-6 bg-white rounded-2xl shadow-sm border border-[#C9A24D]/15 h-full">
                 <h4 className="text-[#5A1A1F] font-heading font-bold text-lg mb-2">
                   100% Pure Vegetarian
                 </h4>
@@ -93,12 +97,12 @@ export default function About() {
                   Strictly vegetarian kitchen facilities with dedicated Jain, vegan, and sattvic preparation protocols available for every sacred ritual.
                 </p>
               </div>
-              <div className="p-6 bg-white rounded-2xl shadow-sm border border-[#C9A24D]/15">
-                <h4 className="text-[#C9A24D] font-heading font-bold text-lg mb-2">
+              <div className="p-6 bg-white rounded-2xl shadow-sm border border-[#C9A24D]/15 h-full">
+                <h4 className="text-[#A98332] font-heading font-bold text-lg mb-2">
                   Bespoke Hospitality
                 </h4>
                 <p className="text-[#5E5E5E] text-xs sm:text-sm leading-relaxed">
-                  Every banquet is managed by experienced culinary directors and gracious, uniformed service staff to ensure effortless hosting for your family.
+                  Every private party is managed by experienced culinary directors and gracious, uniformed service staff so you can relax and enjoy your guests.
                 </p>
               </div>
             </div>

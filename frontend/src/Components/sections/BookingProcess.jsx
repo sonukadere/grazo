@@ -53,7 +53,7 @@ export default function BookingProcess() {
   };
 
   return (
-    <section id="process" className="py-20 md:py-28 bg-[#FAF7F2] relative overflow-hidden">
+    <section id="process" className="py-14 md:py-20 bg-[#FFFDF9] border-t border-[#C9A24D]/15 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           subtitle="How It Works"
@@ -62,20 +62,27 @@ export default function BookingProcess() {
         />
 
         {/* 4 Step Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative mt-12">
-          {/* Decorative Connecting Line (Desktop) */}
-          <div className="hidden lg:block absolute top-14 left-[12%] right-[12%] h-[2px] bg-gradient-to-r from-[#C9A24D]/20 via-[#C9A24D] to-[#C9A24D]/20 -z-0" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 relative items-stretch">
+          {/* Animated Drawing Connecting Line (Desktop) */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 1.0, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="hidden lg:block absolute top-[60px] left-[12%] right-[12%] h-[2px] bg-gradient-to-r from-[#C9A24D]/25 via-[#C9A24D] to-[#C9A24D]/25 origin-left z-0"
+          />
 
           {processSteps.map((item, index) => {
             const Icon = item.icon;
             return (
               <motion.div
                 key={item.step}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.12 }}
-                className="relative z-10 bg-white rounded-2xl p-7 border border-[#C9A24D]/25 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center group"
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.6, delay: index * 0.12, ease: [0.22, 1, 0.36, 1] }}
+                whileHover={{ y: -6 }}
+                className="relative z-10 bg-white rounded-2xl p-7 border border-[#C9A24D]/25 hover:border-[#C9A24D]/55 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center group"
               >
                 {/* Step Circle & Icon */}
                 <div className="w-16 h-16 rounded-full bg-[#5A1A1F] text-[#FAF7F2] ring-4 ring-[#FAF7F2] shadow-lg flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-[#C9A24D] group-hover:text-[#1C1C1C] transition-all duration-300">
@@ -102,7 +109,7 @@ export default function BookingProcess() {
         </div>
 
         {/* Action Prompt */}
-        <div className="mt-14 text-center">
+        <div className="mt-10 md:mt-12 text-center">
           <button
             onClick={scrollToContact}
             className="btn-primary text-xs sm:text-sm uppercase tracking-wider px-8 py-3.5"

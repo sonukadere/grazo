@@ -1,12 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaWhatsapp, FaInstagram, FaFacebookF, FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-import { navLinks, whatsappLink, phoneNumber, email, location, fssaiNumber } from "../../data/navigation";
+import { navLinks, whatsappLink, phoneNumber, email, location, instagramUrl } from "../../data/navigation";
 import logo from "../Assets/grazo-logo.png";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const routerLocation = useLocation();
+  const navigate = useNavigate();
 
   const scrollTo = (id) => {
+    if (routerLocation.pathname !== "/") {
+      navigate(`/#${id}`);
+      return;
+    }
     const el = document.getElementById(id);
     if (el) {
       const offset = 80;
@@ -20,10 +26,19 @@ export default function Footer() {
     }
   };
 
+  const handleLinkClick = (link) => {
+    if (link.route) {
+      navigate(link.route);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+    scrollTo(link.href);
+  };
+
   return (
     <footer className="bg-[#1C1C1C] text-white border-t border-[#C9A24D]/25 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           {/* Brand Info (4 Cols) */}
           <div className="lg:col-span-5 space-y-5">
             <Link to="/" className="flex items-center gap-3.5 group">
@@ -47,16 +62,8 @@ export default function Footer() {
             </Link>
 
             <p className="text-sm text-gray-300 leading-relaxed max-w-sm">
-              Indore&apos;s premier pure vegetarian luxury catering brand. Specialising in opulent royal wedding banquets, bespoke artisanal grazing tables, and high-energy interactive live stations across Central India.
+              Indore&apos;s premier boutique pure vegetarian catering brand for small parties. Specialising in house parties, birthdays, kitty parties, bespoke artisanal grazing tables, and interactive live counters.
             </p>
-
-            {/* FSSAI Badge */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white/5 border border-[#C9A24D]/30 text-xs">
-              <span className="w-2 h-2 rounded-full bg-emerald-400" />
-              <span className="text-gray-300">
-                FSSAI Lic. No: <strong className="text-[#DFC688]">{fssaiNumber}</strong> [Placeholder]
-              </span>
-            </div>
           </div>
 
           {/* Quick Links (3 Cols) */}
@@ -69,7 +76,7 @@ export default function Footer() {
               {navLinks.map((link) => (
                 <li key={link.label}>
                   <button
-                    onClick={() => scrollTo(link.href)}
+                    onClick={() => handleLinkClick(link)}
                     className="text-gray-300 hover:text-[#C9A24D] transition-colors cursor-pointer"
                   >
                     {link.label}
@@ -122,7 +129,7 @@ export default function Footer() {
               </p>
               <div className="flex items-center gap-3">
                 <a
-                  href="https://www.instagram.com/grazo_indore/"
+                  href={instagramUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#5A1A1F] text-white hover:text-[#C9A24D] flex items-center justify-center transition-all border border-white/10 hover:border-[#C9A24D]/40"
@@ -156,12 +163,12 @@ export default function Footer() {
         </div>
 
         {/* Bottom Copyright Bar */}
-        <div className="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400 text-center sm:text-left">
           <p>
             &copy; {currentYear} Grazo Bites. All rights reserved. 100% Pure Vegetarian Luxury Catering.
           </p>
           <p className="text-gray-400">
-            Crafted for weddings & grand celebrations across Indore, Madhya Pradesh.
+            Crafted for small parties & intimate celebrations across Indore, Madhya Pradesh.
           </p>
         </div>
       </div>

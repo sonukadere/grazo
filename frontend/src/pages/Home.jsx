@@ -8,7 +8,6 @@ import Hero from "../Components/sections/Hero";
 import TrustBar from "../Components/sections/TrustBar";
 import Services from "../Components/sections/Services";
 import LiveCountersAndGrazing from "../Components/sections/LiveCountersAndGrazing";
-import Gallery from "../Components/sections/Gallery";
 import Testimonials from "../Components/sections/Testimonials";
 import BookingProcess from "../Components/sections/BookingProcess";
 import About from "../Components/sections/About";
@@ -48,16 +47,13 @@ export default function Home() {
         {/* 3. Trust Bar */}
         <TrustBar />
 
-        {/* 4. Services (Wedding, Haldi, Mehendi, Sangeet, Corporate, Celebrations) */}
+        {/* 4. Services (Small Parties: House Parties, Birthdays, Anniversaries, Kitty Parties, Corporate, Festive) */}
         <Services />
 
         {/* 5. Live Counters and Grazing Tables Showcase */}
         <LiveCountersAndGrazing />
 
-        {/* 6. Gallery (Masonry grid with lightbox) */}
-        <Gallery />
-
-        {/* 8. Testimonials (Carousel/cards with name & event type) */}
+        {/* 6. Testimonials (Carousel/cards with name & event type) */}
         <Testimonials />
 
         {/* 9. Process (4 Steps: Enquiry → Tasting → Custom Menu → Flawless Execution) */}

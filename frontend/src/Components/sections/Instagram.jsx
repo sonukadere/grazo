@@ -18,7 +18,7 @@ export default function Instagram() {
         <SectionTitle
           subtitle="Follow Us"
           title="@GrazoCatering"
-          description="Follow us on Instagram for behind-the-scenes glimpses, wedding highlights, and daily inspiration from our kitchen."
+          description="Follow us on Instagram for behind-the-scenes glimpses, small-party highlights, and daily inspiration from our kitchen."
         />
 
         <motion.div
@@ -31,7 +31,7 @@ export default function Instagram() {
           {instaPosts.map((post) => (
             <a
               key={post.id}
-              href="https://www.instagram.com/grazo_indore/"
+              href="https://www.instagram.com/grazo_bites"
               target="_blank"
               rel="noreferrer"
               className="group relative overflow-hidden rounded-xl aspect-square shadow-sm"
@@ -51,7 +51,7 @@ export default function Instagram() {
 
         <div className="text-center mt-8">
           <a
-            href="https://www.instagram.com/grazo_indore/"
+            href="https://www.instagram.com/grazo_bites"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all active:scale-95"

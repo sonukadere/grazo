@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 
+const EASE = [0.22, 1, 0.36, 1];
+
 export default function SectionTitle({
   subtitle,
   title,
@@ -13,11 +15,11 @@ export default function SectionTitle({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`max-w-3xl ${center ? "mx-auto text-center" : ""} mb-12 md:mb-16`}
+      transition={{ duration: 0.65, ease: EASE }}
+      className={`max-w-6xl ${center ? "mx-auto text-center" : ""} mb-10 md:mb-12`}
     >
       {badge && (
         <span className="inline-block px-4 py-1 mb-3 rounded-full text-xs font-semibold tracking-wider uppercase bg-maroon/10 text-maroon border border-maroon/20">
@@ -27,24 +29,46 @@ export default function SectionTitle({
 
       {subtitle && (
         <div className={`flex items-center gap-3 ${center ? "justify-center" : ""} mb-3`}>
-          <span className="w-8 h-px bg-gold" />
-          <span className="text-gold font-medium text-xs sm:text-sm tracking-[0.25em] uppercase">
+          <motion.span
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
+            className="w-8 sm:w-10 h-[1.5px] bg-[#C9A24D]/70 rounded-full origin-right"
+          />
+          <span className="text-[#A98332] font-semibold text-xs sm:text-sm tracking-[0.22em] uppercase">
             {subtitle}
           </span>
-          <span className="w-8 h-px bg-gold" />
+          <motion.span
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
+            className="w-8 sm:w-10 h-[1.5px] bg-[#C9A24D]/70 rounded-full origin-left"
+          />
         </div>
       )}
 
-      <h2
-        className={`text-3xl sm:text-4xl md:text-5xl font-heading font-bold leading-tight ${textClass}`}
+      <motion.h2
+        initial={{ opacity: 0, y: 14 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.65, delay: 0.08, ease: EASE }}
+        className={`text-2xl sm:text-3xl md:text-4xl lg:text-[2.5rem] xl:whitespace-nowrap font-heading font-bold leading-[1.2] text-balance ${textClass}`}
       >
         {title}
-      </h2>
+      </motion.h2>
 
       {description && (
-        <p className={`mt-4 text-base md:text-lg leading-relaxed ${mutedClass} max-w-2xl ${center ? "mx-auto" : ""}`}>
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.65, delay: 0.16, ease: EASE }}
+          className={`mt-4 text-sm sm:text-base md:text-lg leading-relaxed ${mutedClass} max-w-2xl text-pretty ${center ? "mx-auto" : ""}`}
+        >
           {description}
-        </p>
+        </motion.p>
       )}
     </motion.div>
   );

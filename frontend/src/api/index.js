@@ -113,7 +113,7 @@ const localGalleryImages = [
     title: "Event Photography",
   })),
   ...[
-    { file: "WhatsApp Video 2026-07-29 at 11.56.24 PM", title: "Wedding Event Highlights" },
+    { file: "WhatsApp Video 2026-07-29 at 11.56.24 PM", title: "Private Party Highlights" },
     { file: "WhatsApp Video 2026-07-29 at 11.56.42 PM (1)", title: "Live Counter Setup" },
     { file: "WhatsApp Video 2026-07-29 at 11.56.42 PM", title: "Grazing Table Presentation" },
   ].map((v) => ({

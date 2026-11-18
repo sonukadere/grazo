@@ -24,28 +24,29 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="py-20 md:py-28 bg-[#FAF7F2] relative overflow-hidden">
+    <section id="services" className="py-14 md:py-20 bg-[#FAF7F2] relative overflow-hidden">
       {/* Decorative Warm Ambient Glow */}
       <div className="absolute top-1/4 -right-40 w-96 h-96 bg-[#C9A24D]/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 -left-40 w-96 h-96 bg-[#5A1A1F]/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionTitle
-          subtitle="Our Catering Services"
-          title="Curated Celebrations for Every Milestone"
-          description="From lavish royal wedding banquets to high-energy sangeet live stations and corporate summits in Indore — every event is tailored with authentic taste and luxury presentation."
+          subtitle="Small Party Catering"
+          title="Curated Spreads for Intimate Celebrations"
+          description="We specialise exclusively in small parties and boutique gatherings in Indore — from house parties, birthdays, and kitty parties to housewarmings and corporate meetups."
         />
 
         {/* 6 Service Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
           {servicesData.map((service, index) => (
             <motion.div
               key={service.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group bg-white rounded-2xl overflow-hidden border border-[#C9A24D]/20 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col"
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.6, delay: (index % 3) * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -6 }}
+              className="group bg-white rounded-2xl overflow-hidden border border-[#C9A24D]/20 hover:border-[#C9A24D]/55 shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col"
             >
               {/* Card Image Container with Hover Zoom */}
               <div className="relative h-60 sm:h-64 overflow-hidden bg-gray-100">
@@ -84,7 +85,7 @@ export default function Services() {
                 {/* Action Link */}
                 <button
                   onClick={() => scrollToContact(service.title)}
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#5A1A1F] group-hover:text-[#C9A24D] transition-colors cursor-pointer pt-4 border-t border-gray-100"
+                  className="w-full flex items-center justify-between text-sm font-semibold text-[#5A1A1F] group-hover:text-[#C9A24D] transition-colors cursor-pointer pt-4 border-t border-[#C9A24D]/15"
                   aria-label={`Inquire about ${service.title}`}
                 >
                   <span>Book for this event</span>

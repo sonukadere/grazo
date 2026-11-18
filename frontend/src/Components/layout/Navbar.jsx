@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiMenu, HiX } from "react-icons/hi";
 import { navLinks } from "../../data/navigation";
@@ -10,6 +10,9 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     const onScroll = () => {
@@ -20,7 +23,12 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const sectionIds = ["hero", ...navLinks.map((l) => l.href)];
+    if (!isHomePage) {
+      setActiveSection("");
+      return;
+    }
+
+    const sectionIds = ["hero", ...navLinks.filter((l) => !l.route).map((l) => l.href)];
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -38,13 +46,13 @@ export default function Navbar() {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [isHomePage]);
 
   const scrollTo = useCallback(
     (id) => {
       setIsOpen(false);
-      if (location.pathname !== "/") {
-        window.location.href = `/#${id}`;
+      if (!isHomePage) {
+        navigate(`/#${id}`);
         return;
       }
       const el = document.getElementById(id);
@@ -61,13 +69,26 @@ export default function Navbar() {
         });
       }
     },
-    [location.pathname]
+    [isHomePage, navigate]
+  );
+
+  const handleNavClick = useCallback(
+    (link) => {
+      setIsOpen(false);
+      if (link.route) {
+        navigate(link.route);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+      scrollTo(link.href);
+    },
+    [navigate, scrollTo]
   );
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
+        scrolled || !isHomePage
           ? "bg-[#1C1C1C]/95 backdrop-blur-md border-b border-[#C9A24D]/20 shadow-[0_4px_30px_rgba(0,0,0,0.35)] py-3"
           : "bg-gradient-to-b from-[#1C1C1C]/80 via-[#1C1C1C]/40 to-transparent py-5"
       }`}
@@ -77,7 +98,10 @@ export default function Navbar() {
           {/* Brand Logo & Name */}
           <Link
             to="/"
-            onClick={() => scrollTo("hero")}
+            onClick={() => {
+              setIsOpen(false);
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
             className="flex items-center gap-3 group min-w-0"
             aria-label="Grazo Bites Homepage"
           >
@@ -107,17 +131,19 @@ export default function Navbar() {
             aria-label="Main Navigation"
           >
             {navLinks.map((link) => {
-              const isActive = activeSection === link.href;
+              const isActive = link.route
+                ? location.pathname === link.route
+                : isHomePage && activeSection === link.href;
               return (
                 <button
                   key={link.label}
-                  onClick={() => scrollTo(link.href)}
+                  onClick={() => handleNavClick(link)}
                   className={`relative px-4 py-2 text-sm font-medium transition-colors duration-200 cursor-pointer ${
                     isActive
                       ? "text-[#C9A24D]"
                       : "text-white/85 hover:text-[#C9A24D]"
                   }`}
-                  aria-current={isActive ? "true" : undefined}
+                  aria-current={isActive ? "page" : undefined}
                 >
                   {link.label}
                   {isActive && (
@@ -176,11 +202,13 @@ export default function Navbar() {
                   Navigation
                 </span>
                 {navLinks.map((link) => {
-                  const isActive = activeSection === link.href;
+                  const isActive = link.route
+                    ? location.pathname === link.route
+                    : isHomePage && activeSection === link.href;
                   return (
                     <button
                       key={link.label}
-                      onClick={() => scrollTo(link.href)}
+                      onClick={() => handleNavClick(link)}
                       className={`text-left px-4 py-3 rounded-xl text-base font-medium transition-all ${
                         isActive
                           ? "bg-[#C9A24D]/15 text-[#C9A24D] font-semibold"

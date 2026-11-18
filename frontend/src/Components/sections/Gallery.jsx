@@ -3,8 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { HiX, HiChevronLeft, HiChevronRight, HiPlay, HiArrowsExpand } from "react-icons/hi";
 import SectionTitle from "../ui/SectionTitle";
 import { getGallery } from "../../api";
+import fallbackGrazingImg from "../Assets/grasing table full image.jpg";
 
-export default function Gallery() {
+export default function Gallery({ hideHeader = false }) {
   const [galleryImages, setGalleryImages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("All");
@@ -19,7 +20,7 @@ export default function Gallery() {
           if (item.type === "video") category = "Videos";
           else if (i % 3 === 0) category = "Grazing & Plating";
           else if (i % 3 === 1) category = "Live Counters";
-          else category = "Weddings";
+          else category = "Private Parties";
           return {
             ...item,
             category,
@@ -32,7 +33,7 @@ export default function Gallery() {
       .finally(() => setLoading(false));
   }, []);
 
-  const categories = ["All", "Grazing & Plating", "Live Counters", "Weddings", "Videos"];
+  const categories = ["All", "Grazing & Plating", "Live Counters", "Private Parties", "Videos"];
 
   const filtered =
     filter === "All"
@@ -70,33 +71,48 @@ export default function Gallery() {
   if (loading) return null;
 
   return (
-    <section id="gallery" className="py-20 md:py-28 bg-[#FAF7F2] border-t border-[#C9A24D]/15 relative">
+    <section
+      id="gallery"
+      className={`${hideHeader ? "py-12 md:py-16" : "py-14 md:py-20 border-t border-[#C9A24D]/15"} bg-[#FAF7F2] relative`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionTitle
-          subtitle="Our Portfolio"
-          title="Moments We Have Made Delicious"
-          description="A visual journey through our luxurious grazing table setups, interactive live counters, and high-profile wedding banquets across Indore and Central India."
-        />
+        {!hideHeader && (
+          <SectionTitle
+            subtitle="Our Portfolio"
+            title="Moments We Have Made Delicious"
+            description="A visual journey through our luxurious grazing table setups, interactive live counters, and intimate private party spreads across Indore."
+          />
+        )}
 
-        {/* Category Filter Pills */}
-        <div className="flex flex-wrap justify-center gap-2.5 mb-12">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setFilter(cat)}
-              className={`px-5 py-2.5 text-xs sm:text-sm font-semibold rounded-full transition-all cursor-pointer ${
-                filter === cat
-                  ? "bg-[#5A1A1F] text-white shadow-md shadow-[#5A1A1F]/25 border border-[#5A1A1F]"
-                  : "bg-white text-[#1C1C1C]/80 border border-[#C9A24D]/30 hover:border-[#C9A24D] hover:text-[#5A1A1F]"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
+        {/* Category Filter Pills with Sliding Active Pill */}
+        <div className="flex flex-wrap justify-center gap-2.5 mb-10 md:mb-12">
+          {categories.map((cat) => {
+            const active = filter === cat;
+            return (
+              <button
+                key={cat}
+                onClick={() => setFilter(cat)}
+                className={`relative px-5 py-2.5 text-xs sm:text-sm font-semibold rounded-full transition-colors cursor-pointer ${
+                  active
+                    ? "text-white"
+                    : "bg-white text-[#1C1C1C]/80 border border-[#C9A24D]/30 hover:border-[#C9A24D] hover:text-[#5A1A1F]"
+                }`}
+              >
+                {active && (
+                  <motion.span
+                    layoutId="galleryFilterPill"
+                    transition={{ type: "spring", stiffness: 360, damping: 30 }}
+                    className="absolute inset-0 rounded-full bg-[#5A1A1F] shadow-md shadow-[#5A1A1F]/25"
+                  />
+                )}
+                <span className="relative z-10">{cat}</span>
+              </button>
+            );
+          })}
         </div>
 
         {/* Masonry-Style Grid */}
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-6">
           {filtered.slice(0, 18).map((img, index) => (
             <motion.div
               key={img.id}
@@ -104,7 +120,7 @@ export default function Gallery() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: (index % 6) * 0.08 }}
-              className="break-inside-avoid group relative overflow-hidden rounded-2xl bg-white border border-[#C9A24D]/20 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer"
+              className="break-inside-avoid mb-6 group relative overflow-hidden rounded-2xl bg-white border border-[#C9A24D]/20 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer"
               onClick={() => setLightbox(img)}
             >
               {img.type === "video" ? (
@@ -131,10 +147,9 @@ export default function Gallery() {
                     width={600}
                     height={450}
                     onError={(e) => {
-                      // Fallback placeholder image if local image has decoding issue
-                      e.target.src = "https://images.unsplash.com/photo-1555244162-803834f70033?w=600&q=80";
+                      e.target.src = fallbackGrazingImg;
                     }}
-                    className="w-full h-auto object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
+                    className="w-full h-auto block object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
                 </div>
               )}
@@ -189,7 +204,11 @@ export default function Gallery() {
             </button>
 
             {/* Media Content */}
-            <div
+            <motion.div
+              initial={{ opacity: 0, scale: 0.94 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.94 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
               className="relative max-w-4xl max-h-[82vh] flex flex-col items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
@@ -220,7 +239,7 @@ export default function Gallery() {
                   {lightbox.title}
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Next Button */}
             <button

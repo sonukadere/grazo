@@ -1,57 +1,64 @@
+import housePartyImg from "../Components/curated/service-sangeet.jpg";
+import birthdayImg from "../Components/curated/fusion-dessert-spread.jpg";
+import anniversaryImg from "../Components/Assets/gallery/3.jpeg";
+import kittyPartyImg from "../Components/curated/service-mehendi.jpg";
+import corporateImg from "../Components/curated/service-corporate.jpg";
+import festiveImg from "../Components/curated/service-haldi.jpg";
+
 export const servicesData = [
   {
-    id: "wedding",
-    title: "Wedding Receptions",
-    subtitle: "Grand Royal Banquets",
+    id: "house-party",
+    title: "House Parties & Soirées",
+    subtitle: "Intimate Home & Terrace Gatherings",
     description:
-      "Regal multi-course pure vegetarian feasts tailored to your family's traditions. Featuring bespoke buffet presentation, live culinary counters, and impeccable white-glove hospitality.",
-    image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80&auto=format&fit=crop",
-    tag: "Royal Feasts",
+      "Effortless pure vegetarian catering crafted for cozy home get-togethers, cocktail evenings, and terrace parties. Featuring artisanal grazing tables, gourmet starters, and attentive service.",
+    image: housePartyImg,
+    tag: "House Parties",
   },
   {
-    id: "haldi",
-    title: "Haldi Celebrations",
-    subtitle: "Vibrant Morning Spreads",
+    id: "birthday",
+    title: "Birthday Celebrations",
+    subtitle: "Stylish Private Parties",
     description:
-      "Bright, refreshing culinary spreads designed for sunny morning ceremonies. Featuring signature chilled beverages, seasonal fruit bars, live street chaat stations, and traditional breakfast bites.",
-    image: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&q=80&auto=format&fit=crop",
-    tag: "Morning Spreads",
+      "Elevate milestone birthdays and private celebrations with interactive live pasta & chaat stations, crowd-pleasing vegetarian tapas, and decadent fusion dessert spreads.",
+    image: birthdayImg,
+    tag: "Birthdays",
   },
   {
-    id: "mehendi",
-    title: "Mehendi Soirées",
+    id: "anniversary",
+    title: "Anniversary & Family Dinners",
+    subtitle: "Warm Intimate Milestones",
+    description:
+      "Celebrate family milestones and intimate anniversaries with curated pure vegetarian spreads, artisanal cheese & fruit boards, and personalized culinary styling.",
+    image: anniversaryImg,
+    tag: "Family Dinners",
+  },
+  {
+    id: "kitty-party",
+    title: "Kitty Parties & Hi-Tea",
     subtitle: "Artisanal Hi-Tea & Tapas",
     description:
-      "Curated finger foods, live chaat carts, artisanal tartines, and exotic mocktail bars that keep guests mingling while hands are adorned with henna.",
-    image: "https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?w=800&q=80&auto=format&fit=crop",
-    tag: "High Tea & Tapas",
-  },
-  {
-    id: "sangeet",
-    title: "Sangeet & Cocktail Nights",
-    subtitle: "High-Energy Live Stations",
-    description:
-      "Dynamic interactive live stations — pasta made in parmesan wheels, wood-fired bites, Asian dumpling bars, and progressive Indian tapas that energize your celebration until the late hours.",
-    image: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80&auto=format&fit=crop",
-    tag: "Live Interactive Bars",
+      "Chic afternoon spreads featuring savoury tartines, pani puri shots, exotic salads, refreshing botanical mocktails, and delicate bites designed for lively conversations.",
+    image: kittyPartyImg,
+    tag: "Hi-Tea & Tapas",
   },
   {
     id: "corporate",
-    title: "Corporate Events",
-    subtitle: "Conferences, Galas & Summits",
+    title: "Corporate Meetups & Lunches",
+    subtitle: "Boardrooms, Launches & Mixers",
     description:
-      "Refined, timely, and professional catering for board meetings, leadership summits, brand launches, and annual corporate galas with premium executive presentation.",
-    image: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&q=80&auto=format&fit=crop",
+      "Refined, punctual pure vegetarian catering for executive lunches, team celebrations, boutique brand launches, and office mixers with polished presentation.",
+    image: corporateImg,
     tag: "Executive Dining",
   },
   {
-    id: "celebrations",
-    title: "Milestone Celebrations",
-    subtitle: "Anniversaries & Private Parties",
+    id: "festive",
+    title: "Festive & Private Gatherings",
+    subtitle: "Housewarmings, Baby Showers & Pujas",
     description:
-      "Intimate gatherings and milestone birthdays transformed by custom menus, artisanal grazing boards, and personalized chef service designed around your story.",
-    image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80&auto=format&fit=crop",
-    tag: "Bespoke & Intimate",
+      "Thoughtful pure vegetarian and Jain-friendly spreads for Griha Pravesh, baby showers, Diwali card parties, and intimate family pujas across Indore.",
+    image: festiveImg,
+    tag: "Private Events",
   },
 ];
 

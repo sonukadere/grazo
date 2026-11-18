@@ -86,6 +86,8 @@
 @layer components {
   /* Unified Button System: Primary Gold & Secondary Outline */
   .btn-primary {
+    position: relative;
+    overflow: hidden;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -98,15 +100,29 @@
     font-size: 0.875rem;
     line-height: 1.25rem;
     letter-spacing: 0.025em;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
     box-shadow: 0 4px 14px rgba(201, 162, 77, 0.28);
     cursor: pointer;
+  }
+
+  .btn-primary::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.35) 50%, transparent 100%);
+    transform: translateX(-120%);
+    transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+  }
+
+  .btn-primary:hover::after {
+    transform: translateX(120%);
   }
 
   .btn-primary:hover {
     background-color: #DFC688;
     transform: translateY(-2px);
-    box-shadow: 0 8px 22px rgba(201, 162, 77, 0.38);
+    box-shadow: 0 10px 26px rgba(201, 162, 77, 0.42);
   }
 
   .btn-primary:active {
@@ -189,6 +205,19 @@
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border: 1px solid rgba(201, 162, 77, 0.2);
+  }
+
+  .animate-subtle-zoom {
+    animation: subtleZoom 22s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes subtleZoom {
+  0% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1.11);
   }
 }
 

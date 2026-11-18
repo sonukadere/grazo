@@ -1,7 +1,13 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import SectionTitle from "../ui/SectionTitle";
 import { HiSparkles } from "react-icons/hi";
+import grazingTableImg from "../Assets/grasing table full image.jpg";
+import cheeseBoardImg from "../Assets/cheese-board-5.jpg";
+import livePastaImg from "../curated/live-pasta-station.jpg";
+import gourmetChaatImg from "../curated/gourmet-chaat-bar.jpg";
+import dimsumCounterImg from "../curated/dimsum-asian-counter.jpg";
+import fusionDessertImg from "../curated/fusion-dessert-spread.jpg";
 
 // Showcase data for Grazo Bites' signature grazing & live stations
 const showcaseItems = [
@@ -12,7 +18,7 @@ const showcaseItems = [
     subtitle: "A Feast for the Senses",
     description:
       "A lavish tablescape of imported & artisanal cheeses, housemade hummus, smoked avocado papdi, exotic seasonal fruits, honeycomb, sourdough, and crackers.",
-    image: "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80&auto=format&fit=crop",
+    image: grazingTableImg,
     features: ["Assorted Artisanal Cheeses", "5+ Housemade Dips", "Exotic Fruit Platters"],
   },
   {
@@ -22,7 +28,7 @@ const showcaseItems = [
     subtitle: "Italian Culinary Theatre",
     description:
       "Handmade pastas tossed fresh before your guests in aged parmesan wheels with truffle emulsions, sundried tomatoes, and fresh herbs.",
-    image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=800&q=80&auto=format&fit=crop",
+    image: livePastaImg,
     features: ["Parmesan Wheel Tossing", "Handcrafted Ravioli", "Truffle & Herb Emulsions"],
   },
   {
@@ -32,7 +38,7 @@ const showcaseItems = [
     subtitle: "Desi Flavours Reimagined",
     description:
       "Crisp pani puri shots with infused flavoured waters, smoked sweet potato chaat, jhalmuri, and progressive street specialities made to order.",
-    image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=800&q=80&auto=format&fit=crop",
+    image: gourmetChaatImg,
     features: ["Pani Puri Shot Bar", "Smoked Avocado Papdi", "Live Jodhpuri Mirchi Vada"],
   },
   {
@@ -42,7 +48,7 @@ const showcaseItems = [
     subtitle: "Pure Vegetarian Artistry",
     description:
       "Curated cheese boards with Red Cheddar, Gouda, Emmental, dried figs, spiced nuts, and bespoke crackers paired with artisan condiments.",
-    image: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=800&q=80&auto=format&fit=crop",
+    image: cheeseBoardImg,
     features: ["Imported Cheeses", "Spiced Dried Fruits", "Artisanal Breads & Crackers"],
   },
   {
@@ -52,7 +58,7 @@ const showcaseItems = [
     subtitle: "Pan-Asian Delicacies",
     description:
       "Delicate crystal dim sums, steamed edamame dumplings, and live wok-tossed noodles crafted with farm-fresh organic produce.",
-    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=800&q=80&auto=format&fit=crop",
+    image: dimsumCounterImg,
     features: ["Crystal Dumplings", "Steamed Bao Buns", "House Chili Oils & Dips"],
   },
   {
@@ -62,7 +68,7 @@ const showcaseItems = [
     subtitle: "The Grand Finale",
     description:
       "Mini gulab jamun cheesecakes, rasmalai tres leches, eggless tiramisu, and Belgian chocolate fountains with seasonal dipping bites.",
-    image: "https://images.unsplash.com/photo-1587314168485-3236d6710814?w=800&q=80&auto=format&fit=crop",
+    image: fusionDessertImg,
     features: ["Rasmalai Tres Leches", "Gulab Jamun Cheesecake", "Live Fondue Station"],
   },
 ];
@@ -90,7 +96,7 @@ export default function LiveCountersAndGrazing() {
   };
 
   return (
-    <section id="grazing-counters" className="py-20 md:py-28 bg-[#FAF7F2] border-t border-[#C9A24D]/15 relative">
+    <section id="grazing-counters" className="py-14 md:py-20 bg-[#FFFDF9] border-t border-[#C9A24D]/15 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           subtitle="Signature Experiences"
@@ -98,38 +104,54 @@ export default function LiveCountersAndGrazing() {
           description="Where culinary theatre meets opulent presentation. Our grazing tables transform event venues into visual spectacles, while interactive live stations engage your guests with fresh, made-to-order delicacies."
         />
 
-        {/* Filter Pills */}
-        <div className="flex justify-center gap-3 mb-12">
+        {/* Filter Pills with Sliding Active Indicator */}
+        <div className="flex flex-wrap justify-center gap-2.5 sm:gap-3 mb-10 md:mb-12">
           {[
             { id: "all", label: "All Signatures" },
             { id: "grazing", label: "Artisanal Grazing Tables" },
             { id: "live", label: "Interactive Live Counters" },
-          ].map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setFilter(tab.id)}
-              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
-                filter === tab.id
-                  ? "bg-[#5A1A1F] text-white shadow-md shadow-[#5A1A1F]/20"
-                  : "bg-white text-[#1C1C1C]/75 border border-[#C9A24D]/30 hover:border-[#C9A24D] hover:text-[#5A1A1F]"
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
+          ].map((tab) => {
+            const active = filter === tab.id;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setFilter(tab.id)}
+                className={`relative px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-colors cursor-pointer ${
+                  active
+                    ? "text-white"
+                    : "bg-[#FAF7F2] text-[#1C1C1C]/75 border border-[#C9A24D]/30 hover:border-[#C9A24D] hover:text-[#5A1A1F]"
+                }`}
+              >
+                {active && (
+                  <motion.span
+                    layoutId="grazingFilterPill"
+                    transition={{ type: "spring", stiffness: 360, damping: 30 }}
+                    className="absolute inset-0 rounded-full bg-[#5A1A1F] shadow-md shadow-[#5A1A1F]/25"
+                  />
+                )}
+                <span className="relative z-10">{tab.label}</span>
+              </button>
+            );
+          })}
         </div>
 
-        {/* 6 Showcase Grid Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredItems.map((item, index) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-2xl overflow-hidden border border-[#C9A24D]/25 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group"
-            >
+        {/* 6 Showcase Grid Cards with Smooth Layout Morphing */}
+        <motion.div
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch"
+        >
+          <AnimatePresence mode="popLayout">
+            {filteredItems.map((item, index) => (
+              <motion.div
+                layout
+                key={item.id}
+                initial={{ opacity: 0, y: 24, scale: 0.97 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.94 }}
+                transition={{ duration: 0.45, delay: (index % 3) * 0.06, ease: [0.22, 1, 0.36, 1] }}
+                whileHover={{ y: -6 }}
+                className="bg-white rounded-2xl overflow-hidden border border-[#C9A24D]/25 hover:border-[#C9A24D]/55 shadow-sm hover:shadow-2xl transition-shadow duration-300 flex flex-col group"
+              >
               {/* Image with Tag */}
               <div className="relative h-60 overflow-hidden bg-gray-100">
                 <img
@@ -179,7 +201,8 @@ export default function LiveCountersAndGrazing() {
               </div>
             </motion.div>
           ))}
-        </div>
+          </AnimatePresence>
+        </motion.div>
       </div>
     </section>
   );

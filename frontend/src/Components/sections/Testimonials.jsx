@@ -40,7 +40,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="py-20 md:py-28 bg-[#FAF7F2] border-t border-[#C9A24D]/15 relative overflow-hidden"
+      className="py-14 md:py-20 bg-[#FAF7F2] border-t border-[#C9A24D]/15 relative overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -48,13 +48,13 @@ export default function Testimonials() {
         <SectionTitle
           subtitle="Client Stories"
           title="Cherished Words From Our Host Families"
-          description="Hear from the couples, families, and organizations who entrusted Grazo Bites with their most celebrated occasions across Indore and Madhya Pradesh."
+          description="Hear from the hosts, families, and teams who entrusted Grazo Bites with their intimate celebrations and small parties across Indore."
         />
 
         <div className="relative max-w-4xl mx-auto">
           {/* Card Presentation */}
-          <div className="bg-white rounded-3xl p-8 sm:p-12 md:p-16 border border-[#C9A24D]/25 shadow-xl relative">
-            <RiDoubleQuotesL className="w-12 h-12 text-[#C9A24D]/20 absolute top-6 left-6 pointer-events-none" />
+          <div className="bg-white rounded-3xl px-6 py-10 sm:px-16 sm:py-12 md:px-20 md:py-14 border border-[#C9A24D]/25 shadow-xl relative">
+            <RiDoubleQuotesL className="w-10 h-10 sm:w-12 sm:h-12 text-[#C9A24D]/20 absolute top-6 left-6 pointer-events-none" />
 
             <AnimatePresence mode="wait">
               <motion.div
@@ -63,17 +63,17 @@ export default function Testimonials() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.4 }}
-                className="flex flex-col items-center text-center relative z-10"
+                className="flex flex-col items-center justify-center text-center relative z-10 min-h-[240px]"
               >
                 {/* 5-Star Rating */}
-                <div className="flex items-center gap-1.5 mb-6 text-[#C9A24D]">
+                <div className="flex items-center gap-1.5 mb-5 text-[#C9A24D]">
                   {[...Array(t.rating || 5)].map((_, i) => (
                     <HiStar key={i} className="w-5 h-5 fill-current" />
                   ))}
                 </div>
 
                 {/* Review Text */}
-                <blockquote className="text-base sm:text-lg md:text-xl text-[#1C1C1C] font-light leading-relaxed max-w-2xl mb-8 italic">
+                <blockquote className="text-base sm:text-lg md:text-xl text-[#1C1C1C] font-light leading-relaxed max-w-2xl mb-7 italic">
                   &ldquo;{t.text}&rdquo;
                 </blockquote>
 
@@ -99,18 +99,18 @@ export default function Testimonials() {
               </motion.div>
             </AnimatePresence>
 
-            {/* Navigation Arrows */}
-            <div className="flex items-center justify-between absolute top-1/2 -translate-y-1/2 left-4 right-4 pointer-events-none">
+            {/* Desktop Navigation Arrows */}
+            <div className="hidden sm:flex items-center justify-between absolute top-1/2 -translate-y-1/2 left-4 right-4 pointer-events-none">
               <button
                 onClick={prev}
-                className="w-11 h-11 rounded-full bg-[#FAF7F2] border border-[#C9A24D]/30 text-[#1C1C1C] hover:bg-[#5A1A1F] hover:text-white transition-all flex items-center justify-center shadow-md pointer-events-auto cursor-pointer"
+                className="w-11 h-11 rounded-full bg-white border border-[#C9A24D]/30 text-[#1C1C1C] hover:bg-[#5A1A1F] hover:text-white transition-all flex items-center justify-center shadow-md pointer-events-auto cursor-pointer"
                 aria-label="Previous testimonial"
               >
                 <HiChevronLeft className="w-6 h-6" />
               </button>
               <button
                 onClick={next}
-                className="w-11 h-11 rounded-full bg-[#FAF7F2] border border-[#C9A24D]/30 text-[#1C1C1C] hover:bg-[#5A1A1F] hover:text-white transition-all flex items-center justify-center shadow-md pointer-events-auto cursor-pointer"
+                className="w-11 h-11 rounded-full bg-white border border-[#C9A24D]/30 text-[#1C1C1C] hover:bg-[#5A1A1F] hover:text-white transition-all flex items-center justify-center shadow-md pointer-events-auto cursor-pointer"
                 aria-label="Next testimonial"
               >
                 <HiChevronRight className="w-6 h-6" />
@@ -118,18 +118,36 @@ export default function Testimonials() {
             </div>
           </div>
 
-          {/* Indicator Dots */}
-          <div className="flex justify-center gap-2 mt-8">
-            {list.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrent(i)}
-                className={`h-2 rounded-full transition-all cursor-pointer ${
-                  current === i ? "w-8 bg-[#5A1A1F]" : "w-2 bg-[#C9A24D]/40 hover:bg-[#C9A24D]"
-                }`}
-                aria-label={`Go to testimonial ${i + 1}`}
-              />
-            ))}
+          {/* Indicator Dots + Mobile Controls */}
+          <div className="flex items-center justify-center gap-4 mt-7">
+            <button
+              onClick={prev}
+              className="sm:hidden w-9 h-9 rounded-full bg-white border border-[#C9A24D]/30 text-[#1C1C1C] hover:bg-[#5A1A1F] hover:text-white transition-all flex items-center justify-center shadow-sm cursor-pointer"
+              aria-label="Previous testimonial"
+            >
+              <HiChevronLeft className="w-5 h-5" />
+            </button>
+
+            <div className="flex justify-center gap-2">
+              {list.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrent(i)}
+                  className={`h-2 rounded-full transition-all cursor-pointer ${
+                    current === i ? "w-8 bg-[#5A1A1F]" : "w-2 bg-[#C9A24D]/40 hover:bg-[#C9A24D]"
+                  }`}
+                  aria-label={`Go to testimonial ${i + 1}`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={next}
+              className="sm:hidden w-9 h-9 rounded-full bg-white border border-[#C9A24D]/30 text-[#1C1C1C] hover:bg-[#5A1A1F] hover:text-white transition-all flex items-center justify-center shadow-sm cursor-pointer"
+              aria-label="Next testimonial"
+            >
+              <HiChevronRight className="w-5 h-5" />
+            </button>
           </div>
         </div>
       </div>
