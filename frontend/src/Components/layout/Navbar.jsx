@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiMenu, HiX } from "react-icons/hi";
 import { navLinks } from "../../data/navigation";
-import logo from "../Assets/grazo-logo.png";
+import GrazoLogo from "../ui/GrazoLogo";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -105,14 +105,8 @@ export default function Navbar() {
             className="flex items-center gap-3 group min-w-0"
             aria-label="Grazo Bites Homepage"
           >
-            <div className="w-11 h-11 md:w-12 md:h-12 rounded-full overflow-hidden ring-2 ring-[#C9A24D]/60 group-hover:ring-[#C9A24D] shadow-md shadow-[#C9A24D]/20 flex-shrink-0 transition-all duration-300">
-              <img
-                src={logo}
-                alt="Grazo Bites Logo"
-                width={48}
-                height={48}
-                className="w-full h-full object-cover"
-              />
+            <div className="rounded-full shadow-md shadow-[#C9A24D]/25 group-hover:scale-105 transition-transform duration-300 flex-shrink-0">
+              <GrazoLogo className="w-11 h-11 md:w-12 md:h-12" />
             </div>
             <div className="flex flex-col">
               <span className="font-heading font-bold text-xl md:text-2xl text-white tracking-wide leading-tight group-hover:text-[#C9A24D] transition-colors">

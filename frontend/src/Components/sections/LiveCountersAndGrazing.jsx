@@ -4,10 +4,13 @@ import SectionTitle from "../ui/SectionTitle";
 import { HiSparkles } from "react-icons/hi";
 import grazingTableImg from "../Assets/grasing table full image.jpg";
 import cheeseBoardImg from "../Assets/cheese-board-5.jpg";
-import livePastaImg from "../curated/live-pasta-station.jpg";
-import gourmetChaatImg from "../curated/gourmet-chaat-bar.jpg";
 import dimsumCounterImg from "../curated/dimsum-asian-counter.jpg";
 import fusionDessertImg from "../curated/fusion-dessert-spread.jpg";
+import sevTamatarLasagnaImg from "../curated/sev-tamatar-lasagna.jpg";
+import mexicanBurritoBowlImg from "../curated/mexican-burrito-bowl.jpg";
+import avocadoPapdiChaatImg from "../curated/avocado-papdi-chaat.jpg";
+import paneerTikkaTacosImg from "../curated/paneer-tikka-tacos.jpg";
+import thechaPestoCrostiniImg from "../curated/thecha-pesto-crostini.jpg";
 
 // Showcase data for Grazo Bites' signature grazing & live stations
 const showcaseItems = [
@@ -24,25 +27,55 @@ const showcaseItems = [
   {
     id: 2,
     category: "live",
-    title: "Interactive Live Pasta & Risotto Station",
-    subtitle: "Italian Culinary Theatre",
+    title: "Sev Tamatar Lasagna",
+    subtitle: "Signature Indori-Italian Fusion",
     description:
-      "Handmade pastas tossed fresh before your guests in aged parmesan wheels with truffle emulsions, sundried tomatoes, and fresh herbs.",
-    image: livePastaImg,
-    features: ["Parmesan Wheel Tossing", "Handcrafted Ravioli", "Truffle & Herb Emulsions"],
+      "Our show-stopping Indore twist on classic Italian lasagna — tender pasta sheets layered with spiced tamatar gravy, molten mozzarella, and crisp golden Ratlami sev.",
+    image: sevTamatarLasagnaImg,
+    features: ["Spiced Tamatar Béchamel", "Baked Live & Bubbling", "Crispy Ratlami Sev Finish"],
   },
   {
     id: 3,
     category: "live",
-    title: "Gourmet Chaat & Street Food Bar",
-    subtitle: "Desi Flavours Reimagined",
+    title: "Mexican Burrito Bowl",
+    subtitle: "Build-Your-Own Live Bar",
     description:
-      "Crisp pani puri shots with infused flavoured waters, smoked sweet potato chaat, jhalmuri, and progressive street specialities made to order.",
-    image: gourmetChaatImg,
-    features: ["Pani Puri Shot Bar", "Smoked Avocado Papdi", "Live Jodhpuri Mirchi Vada"],
+      "Freshly assembled pure vegetarian burrito bowls with herbed cilantro-lime rice, seasoned black beans, charred corn salsa, guacamole, sour cream, and crisp tortilla strips.",
+    image: mexicanBurritoBowlImg,
+    features: ["Fresh House Guacamole", "Charred Corn & Pico Salsa", "Customisable Toppings Bar"],
   },
   {
     id: 4,
+    category: "live",
+    title: "Avocado Papdi Chaat",
+    subtitle: "Progressive Desi Chaat",
+    description:
+      "Crisp golden papdis crowned with creamy whipped avocado, spiced potato-chickpea medley, chilled yogurt swirls, mint-tamarind glazes, pomegranate rubies, and nylon sev.",
+    image: avocadoPapdiChaatImg,
+    features: ["Creamy Hass Avocado", "House Mint & Tamarind Glaze", "Plated Fresh to Order"],
+  },
+  {
+    id: 5,
+    category: "live",
+    title: "Paneer Tikka Tacos",
+    subtitle: "Tandoor Meets Street Tacos",
+    description:
+      "Warm mini soft tacos stuffed with smoky chargrilled tandoori paneer tikka, crunchy purple cabbage slaw, pickled pink onions, and zesty mint-coriander crema.",
+    image: paneerTikkaTacosImg,
+    features: ["Smoky Chargrilled Paneer", "Mint-Coriander Crema", "Pickled Onions & Slaw"],
+  },
+  {
+    id: 6,
+    category: "live",
+    title: "Thecha Pesto Crostini",
+    subtitle: "Bold Artisanal Tapas",
+    description:
+      "Toasted artisan sourdough crostini layered with velvety whipped cheese and vibrant green chili-peanut thecha basil pesto, finished with heirloom tomatoes and microgreens.",
+    image: thechaPestoCrostiniImg,
+    features: ["Roasted Peanut Thecha Pesto", "Crisp Artisan Sourdough", "Whipped Herb Cream Cheese"],
+  },
+  {
+    id: 7,
     category: "grazing",
     title: "Cheese & Charcuterie-Style Boards",
     subtitle: "Pure Vegetarian Artistry",
@@ -52,17 +85,17 @@ const showcaseItems = [
     features: ["Imported Cheeses", "Spiced Dried Fruits", "Artisanal Breads & Crackers"],
   },
   {
-    id: 5,
+    id: 8,
     category: "live",
     title: "Steamed Dim Sum & Asian Wok Counter",
     subtitle: "Pan-Asian Delicacies",
     description:
-      "Delicate crystal dim sums, steamed edamame dumplings, and live wok-tossed noodles crafted with farm-fresh organic produce.",
+      "Delicate crystal vegetable dim sums, fluffy steamed bao buns, and live wok-tossed noodles crafted to order with crisp seasonal vegetables and house chili oils.",
     image: dimsumCounterImg,
-    features: ["Crystal Dumplings", "Steamed Bao Buns", "House Chili Oils & Dips"],
+    features: ["Crystal Veg Dumplings", "Steamed Bao Buns", "House Chili Oils & Wok Noodles"],
   },
   {
-    id: 6,
+    id: 9,
     category: "grazing",
     title: "Decadent Dessert & Fusion Sweet Spread",
     subtitle: "The Grand Finale",

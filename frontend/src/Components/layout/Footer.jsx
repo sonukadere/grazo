@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaWhatsapp, FaInstagram, FaFacebookF, FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { navLinks, whatsappLink, phoneNumber, email, location, instagramUrl } from "../../data/navigation";
-import logo from "../Assets/grazo-logo.png";
+import GrazoLogo from "../ui/GrazoLogo";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -42,14 +42,8 @@ export default function Footer() {
           {/* Brand Info (4 Cols) */}
           <div className="lg:col-span-5 space-y-5">
             <Link to="/" className="flex items-center gap-3.5 group">
-              <div className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-[#C9A24D]/50 group-hover:ring-[#C9A24D] transition-all flex-shrink-0">
-                <img
-                  src={logo}
-                  alt="Grazo Bites"
-                  width={48}
-                  height={48}
-                  className="w-full h-full object-cover"
-                />
+              <div className="rounded-full shadow-md shadow-[#C9A24D]/20 group-hover:scale-105 transition-transform duration-300 flex-shrink-0">
+                <GrazoLogo className="w-12 h-12" />
               </div>
               <div>
                 <span className="font-heading font-bold text-2xl text-white tracking-wide block leading-none">

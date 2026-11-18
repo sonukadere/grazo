@@ -1,0 +1,23 @@
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gbGold" x1="12" y1="10" x2="88" y2="90" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F0DBA5" />
+      <stop offset="50%" stop-color="#C9A24D" />
+      <stop offset="100%" stop-color="#9C7426" />
+    </linearGradient>
+    <radialGradient id="gbBg" cx="35%" cy="25%" r="75%">
+      <stop offset="0%" stop-color="#6E2228" />
+      <stop offset="65%" stop-color="#4A1418" />
+      <stop offset="100%" stop-color="#260A0D" />
+    </radialGradient>
+  </defs>
+  <circle cx="50" cy="50" r="48" fill="url(#gbBg)" />
+  <circle cx="50" cy="50" r="46" stroke="url(#gbGold)" stroke-width="2.4" />
+  <circle cx="50" cy="50" r="41" stroke="url(#gbGold)" stroke-width="0.9" stroke-opacity="0.6" />
+  <path d="M50 23C50 23 43.5 20.5 41.5 14.5C47.5 14.5 50 19.5 50 23Z" fill="url(#gbGold)" />
+  <path d="M50 23C50 23 56.5 20.5 58.5 14.5C52.5 14.5 50 19.5 50 23Z" fill="url(#gbGold)" />
+  <circle cx="50" cy="25.5" r="1.2" fill="url(#gbGold)" />
+  <text x="50" y="61.5" text-anchor="middle" fill="url(#gbGold)" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="36" letter-spacing="-1.5">GB</text>
+  <path d="M35 73.5H65" stroke="url(#gbGold)" stroke-width="1.2" stroke-linecap="round" stroke-opacity="0.75" />
+  <circle cx="50" cy="79" r="1.6" fill="url(#gbGold)" />
+</svg>
