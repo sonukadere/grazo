@@ -1,11 +1,29 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { FaWhatsapp, FaPhone, FaEnvelope, FaMapMarkerAlt, FaCheckCircle, FaInstagram } from "react-icons/fa";
+import { FaWhatsapp, FaPhone, FaEnvelope, FaMapMarkerAlt, FaCheckCircle, FaInstagram, FaCalendarAlt } from "react-icons/fa";
 import SectionTitle from "../ui/SectionTitle";
 import { whatsappNumber, phoneNumber, email, location, instagramUrl } from "../../data/navigation";
 import { submitBooking } from "../../api";
 
+function isValidDDMMYYYY(value) {
+  const match = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(value.trim());
+  if (!match) return false;
+  const day = parseInt(match[1], 10);
+  const month = parseInt(match[2], 10);
+  const year = parseInt(match[3], 10);
+  if (month < 1 || month > 12 || day < 1 || day > 31 || year < 2024 || year > 2100) return false;
+  const dt = new Date(year, month - 1, day);
+  return dt.getFullYear() === year && dt.getMonth() === month - 1 && dt.getDate() === day;
+}
+
+function ddmmyyyyToISO(value) {
+  const match = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(value.trim());
+  if (!match) return "";
+  return `${match[3]}-${match[2]}-${match[1]}`;
+}
+
 export default function Contact() {
+  const datePickerRef = useRef(null);
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -28,7 +46,11 @@ export default function Contact() {
       errs.phone = "Please enter a valid phone number (e.g. +91 62647 91823).";
     }
     if (!form.eventType) errs.eventType = "Please select an event type.";
-    if (!form.eventDate) errs.eventDate = "Please choose your prospective event date.";
+    if (!form.eventDate.trim()) {
+      errs.eventDate = "Please enter event date (dd/mm/yyyy).";
+    } else if (!isValidDDMMYYYY(form.eventDate)) {
+      errs.eventDate = "Use valid dd/mm/yyyy format (e.g. 25/12/2026).";
+    }
     if (!form.guestCount) {
       errs.guestCount = "Please enter estimated guest count.";
     } else if (parseInt(form.guestCount, 10) < 10) {
@@ -43,6 +65,40 @@ export default function Contact() {
     setForm((prev) => ({ ...prev, [name]: value }));
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
+  };
+
+  const handleDateTyping = (e) => {
+    const digits = e.target.value.replace(/\D/g, "").slice(0, 8);
+    let formatted = digits;
+    if (digits.length > 4) {
+      formatted = `${digits.slice(0, 2)}/${digits.slice(2, 4)}/${digits.slice(4)}`;
+    } else if (digits.length > 2) {
+      formatted = `${digits.slice(0, 2)}/${digits.slice(2)}`;
+    }
+    setForm((prev) => ({ ...prev, eventDate: formatted }));
+    if (errors.eventDate) {
+      setErrors((prev) => ({ ...prev, eventDate: "" }));
+    }
+  };
+
+  const handleNativeDatePick = (e) => {
+    const iso = e.target.value; // yyyy-mm-dd
+    if (!iso) return;
+    const [year, month, day] = iso.split("-");
+    setForm((prev) => ({ ...prev, eventDate: `${day}/${month}/${year}` }));
+    if (errors.eventDate) {
+      setErrors((prev) => ({ ...prev, eventDate: "" }));
+    }
+  };
+
+  const openDatePicker = () => {
+    const input = datePickerRef.current;
+    if (!input) return;
+    if (typeof input.showPicker === "function") {
+      input.showPicker();
+    } else {
+      input.click();
     }
   };
 
@@ -208,21 +264,43 @@ export default function Contact() {
                     </select>
                   </div>
 
-                  {/* Date */}
+                  {/* Date (dd/mm/yyyy with integrated calendar picker) */}
                   <div className="sm:col-span-4">
                     <label htmlFor="eventDate" className="block text-xs font-semibold uppercase tracking-wider text-[#1C1C1C] mb-1.5">
                       Event Date <span className="text-[#5A1A1F]">*</span>
                     </label>
-                    <input
-                      id="eventDate"
-                      type="date"
-                      name="eventDate"
-                      value={form.eventDate}
-                      onChange={handleChange}
-                      className={`w-full px-3.5 py-3 rounded-xl border text-sm transition-all focus:outline-none focus:ring-2 focus:ring-[#C9A24D]/30 ${
-                        errors.eventDate ? "border-red-400 bg-red-50/20" : "border-gray-200 bg-[#FAF7F2]/40 focus:border-[#C9A24D]"
-                      }`}
-                    />
+                    <div className="relative">
+                      <input
+                        id="eventDate"
+                        type="text"
+                        name="eventDate"
+                        inputMode="numeric"
+                        maxLength={10}
+                        placeholder="dd/mm/yyyy"
+                        value={form.eventDate}
+                        onChange={handleDateTyping}
+                        className={`w-full pl-3.5 pr-10 py-3 rounded-xl border text-sm transition-all focus:outline-none focus:ring-2 focus:ring-[#C9A24D]/30 ${
+                          errors.eventDate ? "border-red-400 bg-red-50/20" : "border-gray-200 bg-[#FAF7F2]/40 focus:border-[#C9A24D]"
+                        }`}
+                      />
+                      <button
+                        type="button"
+                        onClick={openDatePicker}
+                        aria-label="Open calendar date picker"
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-[#5E5E5E] hover:text-[#5A1A1F] transition-colors cursor-pointer"
+                      >
+                        <FaCalendarAlt className="w-4 h-4" />
+                      </button>
+                      <input
+                        ref={datePickerRef}
+                        type="date"
+                        tabIndex={-1}
+                        aria-hidden="true"
+                        value={ddmmyyyyToISO(form.eventDate)}
+                        onChange={handleNativeDatePick}
+                        className="sr-only"
+                      />
+                    </div>
                     {errors.eventDate && <p className="text-xs text-red-500 mt-1">{errors.eventDate}</p>}
                   </div>
 
