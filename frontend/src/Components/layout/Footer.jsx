@@ -42,8 +42,8 @@ export default function Footer() {
           {/* Brand Info (4 Cols) */}
           <div className="lg:col-span-5 space-y-5">
             <Link to="/" className="flex items-center gap-3.5 group">
-              <div className="rounded-full shadow-md shadow-[#C9A24D]/20 group-hover:scale-105 transition-transform duration-300 flex-shrink-0">
-                <GrazoLogo className="w-12 h-12" />
+              <div className="group-hover:scale-105 transition-transform duration-300 flex-shrink-0">
+                <GrazoLogo className="w-12 h-12 md:w-13 md:h-13" />
               </div>
               <div>
                 <span className="font-heading font-bold text-2xl text-white tracking-wide block leading-none">

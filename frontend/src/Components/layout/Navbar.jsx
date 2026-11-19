@@ -105,7 +105,7 @@ export default function Navbar() {
             className="flex items-center gap-3 group min-w-0"
             aria-label="Grazo Bites Homepage"
           >
-            <div className="rounded-full shadow-md shadow-[#C9A24D]/25 group-hover:scale-105 transition-transform duration-300 flex-shrink-0">
+            <div className="group-hover:scale-105 transition-transform duration-300 flex-shrink-0">
               <GrazoLogo className="w-11 h-11 md:w-12 md:h-12" />
             </div>
             <div className="flex flex-col">
@@ -189,8 +189,21 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 26, stiffness: 220 }}
-              className="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-[#1C1C1C] border-l border-[#C9A24D]/20 z-50 lg:hidden shadow-2xl flex flex-col p-6 pt-24"
+              className="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-[#1C1C1C] border-l border-[#C9A24D]/20 z-50 lg:hidden shadow-2xl flex flex-col p-6 pt-20"
             >
+              {/* Mobile Drawer Brand Header */}
+              <div className="flex items-center gap-3 pb-5 mb-3 border-b border-white/10">
+                <GrazoLogo className="w-11 h-11" />
+                <div className="flex flex-col">
+                  <span className="font-heading font-bold text-lg text-white leading-tight">
+                    Grazo Bites
+                  </span>
+                  <span className="text-[0.55rem] tracking-[0.2em] font-medium uppercase text-[#C9A24D] leading-tight">
+                    Pure Veg Catering • Indore
+                  </span>
+                </div>
+              </div>
+
               <div className="flex flex-col gap-2">
                 <span className="text-xs uppercase tracking-[0.25em] text-[#C9A24D] font-semibold mb-2">
                   Navigation
